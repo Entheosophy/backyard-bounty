@@ -16,7 +16,7 @@ export default function Contact() {
     const res = await fetch("/api/sendEmail", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+      body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
     });
 
     if (res.ok) {

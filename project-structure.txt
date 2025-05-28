@@ -31,9 +31,8 @@ Project Structure:
 ├── generateStructure.mjs
 ├── heartbeatHibiscus.html
 ├── index.css
-├── index.html
 ├── information.md
-├── next.config.js
+├── next.config.cjs
 ├── package.json
 ├── pages
   ├── _app.jsx
@@ -45,13 +44,6 @@ Project Structure:
   ├── index.jsx
   ├── products.jsx
   ├── where-to-buy.jsx
-├── postcss.config.js
-├── src
-  ├── App.jsx
-  ├── assets
-    ├── react.svg
-  ├── main.jsx
+├── postcss.config.cjs
 ├── src.zip
-├── structure.txt
 ├── tailwind.config.js
-├── vite.config.js

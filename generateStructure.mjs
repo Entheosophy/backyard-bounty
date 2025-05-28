@@ -41,4 +41,4 @@ const output = `Project Structure:\n\n${generateTree(rootDir)}`;
 fs.writeFileSync('project-structure.txt', output);
 console.log('✅ project-structure.txt created.');
 
-// node generateStructure.js
+// node generateStructure.mjs
