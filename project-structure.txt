@@ -1,8 +1,8 @@
 Project Structure:
 
-├── App.jsx
-├── assets
-  ├── react.svg
+├── .gitignore
+├── README.md
+├── backyard-bounty-config.json
 ├── components
   ├── About.jsx
   ├── BasketIcon.jsx
@@ -10,6 +10,7 @@ Project Structure:
   ├── Header.jsx
   ├── HeatScale.jsx
   ├── Label.jsx
+  ├── Layout.jsx
   ├── Navigation.jsx
   ├── ProductList.jsx
   ├── ProductModal.jsx
@@ -26,12 +27,31 @@ Project Structure:
     ├── SunAura.jsx
 ├── context
   ├── BasketContext.jsx
+├── eslint.config.js
+├── generateStructure.mjs
+├── heartbeatHibiscus.html
 ├── index.css
-├── main.jsx
+├── index.html
+├── information.md
+├── next.config.js
+├── package.json
 ├── pages
-  ├── About.jsx
-  ├── Basket.jsx
-  ├── Contact.jsx
-  ├── Home.jsx
-  ├── Products.jsx
-  ├── WhereToBuy.jsx
+  ├── _app.jsx
+  ├── about.jsx
+  ├── api
+    ├── sendEmail.js
+  ├── basket.jsx
+  ├── contact.jsx
+  ├── index.jsx
+  ├── products.jsx
+  ├── where-to-buy.jsx
+├── postcss.config.js
+├── src
+  ├── App.jsx
+  ├── assets
+    ├── react.svg
+  ├── main.jsx
+├── src.zip
+├── structure.txt
+├── tailwind.config.js
+├── vite.config.js

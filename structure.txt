@@ -1,6 +1,0 @@
-src/
-├── App.jsx
-├── components/
-│   ├── Label.jsx
-│   ├── BasketIcon.jsx
-│   └── HeatScale.jsx
