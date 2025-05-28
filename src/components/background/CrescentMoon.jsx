@@ -1,0 +1,21 @@
+// src/components/background/CrescentMoon.jsx
+import { forwardRef } from "react";
+
+const CrescentMoon = forwardRef(function CrescentMoon(_, ref) {
+  return (
+    <div
+      ref={ref}
+      className="fixed top-[60px] left-1/2 -translate-x-1/2 z-0 w-[220px] h-[220px] transition-opacity duration-700 theme-day:opacity-0 theme-night:opacity-100"
+    >
+      {/* Glow */}
+      <div className="absolute inset-0 rounded-full bg-[var(--scene-sun)] opacity-50 blur-3xl" />
+
+      {/* Visible crescent moon */}
+      <div className="absolute inset-0 m-auto w-[160px] h-[160px] rounded-full bg-[#e0e7ff] shadow-md overflow-hidden">
+        <div className="absolute -left-1/4 top-0 w-full h-full rounded-full bg-[var(--scene-bg)]" />
+      </div>
+    </div>
+  );
+});
+
+export default CrescentMoon;

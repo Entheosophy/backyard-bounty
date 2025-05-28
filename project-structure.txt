@@ -1,0 +1,37 @@
+Project Structure:
+
+├── App.jsx
+├── assets
+  ├── react.svg
+├── components
+  ├── About.jsx
+  ├── BasketIcon.jsx
+  ├── Footer.jsx
+  ├── Header.jsx
+  ├── HeatScale.jsx
+  ├── Label.jsx
+  ├── Navigation.jsx
+  ├── ProductList.jsx
+  ├── ProductModal.jsx
+  ├── ThemeToggle.jsx
+  ├── background
+    ├── BackgroundLandscape.jsx
+    ├── BackgroundWrapper.jsx
+    ├── CrescentMoon.jsx
+    ├── DayNightInsects.jsx
+    ├── FieldPlants.jsx
+    ├── LandscapeBackdrop.jsx
+    ├── NightOverlay.jsx
+    ├── RootCanvas.jsx
+    ├── SunAura.jsx
+├── context
+  ├── BasketContext.jsx
+├── index.css
+├── main.jsx
+├── pages
+  ├── About.jsx
+  ├── Basket.jsx
+  ├── Contact.jsx
+  ├── Home.jsx
+  ├── Products.jsx
+  ├── WhereToBuy.jsx

@@ -1,0 +1,111 @@
+{
+    "meta": {
+      "project": "Backyard Bounty",
+      "version": "1.0",
+      "author": "Tyler",
+      "description": "A clean, humble, artisan-branded system for modern web delivery of Idaho-grown products."
+    },
+    "typography": {
+      "fontFamily": {
+        "serif": "Bitter"
+      },
+      "heading": {
+        "h1": "text-4xl font-bold",
+        "h2": "text-2xl font-semibold",
+        "h3": "text-xl font-semibold",
+        "base": "text-base",
+        "tagline": "italic text-lg"
+      },
+      "textColor": "text-[var(--scene-text)]"
+    },
+    "themes": {
+      "day": {
+        "--scene-sky": "#cceeff",
+        "--scene-sun": "#fcd34d",
+        "--scene-field": "#fbbf24",
+        "--scene-plant": "#4caf50",
+        "--scene-text": "#111827",
+        "--scene-bg": "#ffffff"
+      },
+      "night": {
+        "--scene-sky": "#1e1b4b",
+        "--scene-sun": "#a5b4fc",
+        "--scene-field": "#334155",
+        "--scene-plant": "#64748b",
+        "--scene-text": "#f1f5f9",
+        "--scene-bg": "#020617"
+      }
+    },
+    "layout": {
+      "container": "max-w-7xl mx-auto px-4",
+      "sectionSpacing": "py-8 md:py-12",
+      "card": "border p-4 rounded shadow-sm backdrop-blur-md bg-[var(--scene-bg)]/10"
+    },
+    "components": {
+      "Navigation": {
+        "structure": "flex justify-between items-center h-16",
+        "mobileMenu": {
+          "hamburger": "md:hidden p-2 rounded bg-[var(--scene-bg)]/60 border backdrop-blur-md",
+          "dropdown": "md:hidden transition-all max-h-96 overflow-hidden border-t border-gray-300 dark:border-gray-700 bg-[var(--scene-bg)]/70 backdrop-blur-lg"
+        },
+        "zones": {
+          "left": "logo and title",
+          "center": "hamburger",
+          "right": "basket and theme toggle"
+        }
+      },
+      "ThemeToggle": {
+        "default": "px-3 py-2 rounded-full text-sm font-semibold shadow border backdrop-blur-md transition",
+        "day": "bg-yellow-200 text-yellow-900 border-yellow-400",
+        "night": "bg-gray-900 text-sky-100 border-gray-600"
+      },
+      "Footer": {
+        "base": "text-sm text-center py-6 text-[var(--scene-text)]"
+      },
+      "HeatScale": {
+        "imageMode": true,
+        "imagePath": "/Heat#.png",
+        "imageSize": "h-10 w-auto object-contain",
+        "levels": 4
+      },
+      "ProductCard": {
+        "base": "border p-4 shadow-sm rounded bg-[var(--scene-bg)]/10 backdrop-blur-md",
+        "title": "font-bold text-lg mb-2 text-[var(--scene-text)]",
+        "desc": "text-sm opacity-80 mb-4 text-[var(--scene-text)]"
+      }
+    },
+    "pages": {
+      "/": {
+        "components": ["Header", "About", "ProductList", "Footer"],
+        "note": "Central welcome experience with animated Background.jsx"
+      },
+      "/products": {
+        "components": ["ProductList"],
+        "goal": "Showcase salsas with names, descriptions, and HeatScale"
+      },
+      "/where-to-buy": {
+        "components": [],
+        "goal": "List or map of purchase locations (future map integration)"
+      },
+      "/about": {
+        "components": ["About"],
+        "goal": "Story of Uncle Tim and the Idaho-grown legacy"
+      },
+      "/contact": {
+        "components": [],
+        "goal": "Contact form or social/email information"
+      },
+      "/basket": {
+        "components": [],
+        "goal": "Placeholder for future order/cart system"
+      }
+    },
+    "rules": {
+      "textColor": "Always use text-[var(--scene-text)]",
+      "backgrounds": "Never use hard bg-white/black — always theme-based",
+      "fileHeaders": "Every file must start with // src/path/Filename.jsx",
+      "visibility": "Never overlap ThemeToggle or BasketIcon",
+      "mobileFirst": "All layouts must support md: breakpoints"
+    }
+  }
+  

@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/* ————— THEME VARIANTS ————— */
+@custom-variant theme-day (&:where(.theme-day, .theme-day *));
+@custom-variant theme-night (&:where(.theme-night, .theme-night *));
+
+/* ————— ROOT RESET ————— */
+:root {
+  @apply font-serif antialiased m-0 p-0 box-border;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    /* Mild Salsa Colors */
+    --salsa-mild-light: #76D74B;
+    --salsa-mild-dark: #458B2E;
+  
+    /* Medium Salsa Colors */
+    --salsa-med-light: #FFEA30;
+    --salsa-med-dark: #E1A600;
+  
+    /* Hot Salsa Colors */
+    --salsa-hot-light: #FF8533;
+    --salsa-hot-dark: #C84E00;
+  
+    /* Fire Salsa Colors */
+    --salsa-fire-light: #FF4B4B;
+    --salsa-fire-dark: #BE0000;  
+}
+
+/* ————— BODY ————— */
+body {
+  @apply min-h-screen transition-colors duration-500;
+  background-color: var(--scene-bg);
+  color: var(--scene-text);
+}
+
+/* ————— TYPOGRAPHY ————— */
+h1 {
+  @apply text-4xl font-bold leading-tight;
+}
+
+h2 {
+  @apply text-2xl font-semibold mt-6 mb-2;
+}
+
+h3 {
+  @apply text-xl font-semibold mt-4 mb-1;
+}
+
+p {
+  @apply text-base leading-relaxed;
+}
+
+/* ————— LINKS ————— */
+a {
+  @apply font-medium transition hover:text-amber-500 no-underline;
+  color: var(--scene-text);
+}
+
+/* ————— IMAGES ————— */
+img {
+  @apply max-w-full h-auto align-middle;
+}
+
+/* ————— BUTTONS ————— */
+/* No global button styles — use Tailwind classes in JSX only. */
+
+/* ————— THEME TOKENS ————— */
+html.theme-day {
+  --scene-sky: #cceeff;
+  --scene-sun: #fcd34d;
+  --scene-field: #fbbf24;
+  --scene-plant: #4caf50;
+  --scene-text: #111827;
+  --scene-bg: #ffffff;
+  --hill-back: #4a7c59;
+  --hill-mid: #5a8c5a;
+  --hill-front: #6b9b37;
+  --field-back: #e6a020;
+  --field-mid: #f0c040;
+  --field-front: #f4d060;
+}
+
+html.theme-night {
+  --scene-sky: #0f172a;
+  --scene-sun: #a5b4fc;
+  --scene-field: #1e293b;
+  --scene-plant: #475569;
+  --scene-text: #f8fafc;
+  --scene-bg: #020617;
+  --hill-back: #1c3329;
+  --hill-mid: #235237;
+  --hill-front: #2f6631;
+  --field-back: #5f4823;
+  --field-mid: #81662f;
+  --field-front: #a78b3f;
+}
+
+/* ————— ANIMATIONS ————— */
+@keyframes badge-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35) rotate(2deg); }
+  100% { transform: scale(1); }
+}
+
+.animate-badge {
+  animation: badge-pop 0.3s ease;
+}
+
+@keyframes basket-bounce {
+  0%   { transform: scale(1) translateY(0); }
+  25%  { transform: scale(1.15) translateY(-3px); }
+  50%  { transform: scale(1.1) translateY(1px); }
+  75%  { transform: scale(1.12) translateY(-1px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+.animate-basket-bounce {
+  animation: basket-bounce 0.5s ease;
+}
