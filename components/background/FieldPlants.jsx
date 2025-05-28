@@ -1,5 +1,7 @@
 // components/background/FieldPlants.jsx
-import React from 'react';
+import React from "react";
+// import RedPepperPlant from "../svg/RedPepperPlant";
+
 
 const FieldPlants = ({ width, height }) => {
   const TomatoPlant = ({ x, y, scale = 1 }) => (
@@ -16,14 +18,14 @@ const FieldPlants = ({ width, height }) => {
     </g>
   );
 
-  const PepperPlant = ({ x, y, scale = 1 }) => (
+  const PepperPlant = ({ x, y, scale = 1, color = "#ff4500" }) => (
     <g transform={`translate(${x}, ${y}) scale(${scale})`} fill="var(--scene-plant)" stroke="var(--scene-plant)">
       <line x1="0" y1="0" x2="0" y2="-50" strokeWidth="2.5" />
       <ellipse cx="-6" cy="-12" rx="5" ry="10" />
       <ellipse cx="6" cy="-22" rx="5" ry="10" />
       <ellipse cx="-6" cy="-32" rx="5" ry="10" />
-      <ellipse cx="8" cy="-20" rx="4" ry="12" fill="#ff4500" transform="rotate(15)" />
-      <ellipse cx="6" cy="-35" rx="3.5" ry="10" fill="#ff4500" transform="rotate(-10)" />
+      <ellipse cx="8" cy="-20" rx="4" ry="12" fill={color} transform="rotate(15)" />
+      <ellipse cx="6" cy="-35" rx="3.5" ry="10" fill={color} transform="rotate(-10)" />
     </g>
   );
 
@@ -39,11 +41,20 @@ const FieldPlants = ({ width, height }) => {
 
   return (
     <g>
+      {/* Tomatoes: Two vertical columns */}
       <TomatoPlant x={width * 0.18} y={height * 0.95} scale={0.8} />
-      <PepperPlant x={width * 0.44} y={height * 0.92} scale={0.9} />
+      <TomatoPlant x={width * 0.15} y={height * 0.87} scale={0.65} />
+
+      {/* Peppers: Double-stack */}
+      <PepperPlant x={width * 0.44} y={height * 0.99} scale={0.9} color="#ff4500" /> {/* Red */}
+      <PepperPlant x={width * 0.4} y={height * 0.9} scale={0.75} color="#4cbf50" /> {/* Green */}
+      {/* <RedPepperPlant x={width * 0.4} y={height * 0.92} scale={0.9} /> */}
+
+
+      {/* Onions: Two outer + one middle */}
       <OnionPlant x={width * 0.8} y={height * 0.97} scale={0.7} />
-      <TomatoPlant x={width * 0.25} y={height * 0.88} scale={0.5} />
       <OnionPlant x={width * 0.65} y={height * 0.85} scale={0.4} />
+      <OnionPlant x={width * 0.72} y={height * 0.91} scale={0.55} /> {/* New one */}
     </g>
   );
 };
