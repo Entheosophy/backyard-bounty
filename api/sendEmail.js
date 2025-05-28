@@ -3,20 +3,24 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(req) {
-  const { name, email, message } = await req.json();
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Method Not Allowed" });
+  }
+
+  const { name, email, message } = req.body;
 
   try {
     const data = await resend.emails.send({
       from: 'Backyard Bounty <salsa@backyardbounty.shop>',
       to: ['salsa@backyardbounty.shop'],
-      subject: `New Message from ${name}`,
+      subject: `New Contact from ${name}`,
       reply_to: email,
       text: message,
     });
 
-    return new Response(JSON.stringify({ success: true, data }), { status: 200 });
+    res.status(200).json({ success: true, data });
   } catch (error) {
-    return new Response(JSON.stringify({ success: false, error }), { status: 500 });
+    res.status(500).json({ success: false, error: error.message });
   }
 }
