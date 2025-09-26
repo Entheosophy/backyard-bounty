@@ -94,7 +94,7 @@
 
 * Grid of 1–3 columns
 * Product cards with name, flavor text, and heat scale image (1–4)
-* HeatScale uses `/Heat1.png`–`/Heat4.png`
+* HeatScale uses `/heat-1.png`–`/heat-4.png`
 
 ### Footer
 
@@ -104,7 +104,7 @@
 
 ### BasketIcon
 
-* PNG image `/BackyardBountyLogo.png`
+* PNG image `/backyard-bounty-logo.png`
 * Used inline in nav, logo, and page elements
 
 ---
@@ -136,7 +136,7 @@
 
 ### `/about`
 
-* Story of Uncle Tim
+* Story of Tim
 * Emphasis on family, soil, small-batch care
 
 ### `/contact`
@@ -170,8 +170,8 @@
 
 ## 📦 Assets
 
-* `/public/BackyardBountyLogo.png`
-* `/public/Heat1.png`–`Heat4.png`
+* `/public/backyard-bounty-logo.png`
+* `/public/heat-1.png`–`heat-4.png`
 * `/public/favicon.svg` (optional tab icon)
 
 ---

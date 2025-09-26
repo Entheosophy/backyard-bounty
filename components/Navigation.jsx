@@ -56,7 +56,7 @@ export default function Navigation() {
         {/* Desktop */}
         <div className="hidden md:flex items-center justify-between h-full">
           <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-            <img src="/BackyardBountyLogo.png" className="h-8 w-auto max-h-10 object-contain" />
+            <img src="/backyard-bounty-logo.png" className="h-8 w-auto max-h-10 object-contain" />
           </Link>
           {renderLinks()}
           <div className="flex items-center gap-4">
@@ -69,7 +69,7 @@ export default function Navigation() {
         <div className="md:hidden grid grid-cols-3 items-center h-full">
           <Link href="/" className="flex items-center gap-1 min-w-0" onClick={() => setIsOpen(false)}>
             <img
-              src="/BackyardBountyLogo.png"
+              src="/backyard-bounty-logo.png"
               alt="Backyard Bounty"
               className="h-8 w-auto max-h-10 object-contain flex-shrink-0"
             />

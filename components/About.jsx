@@ -6,7 +6,7 @@ export default function About() {
         Our Story
       </h2>
       <p className="leading-relaxed text-[var(--scene-text)] opacity-90">
-        Backyard Bounty began in the heart of Idaho with Uncle Tim’s passion for growing heirloom vegetables and preserving the taste of home. Every jar of salsa is made with fresh-picked tomatoes, peppers, garlic, and love — crafted small-batch in Caldwell to bring bold, honest flavor to your table.
+        Backyard Bounty began in the heart of Idaho with Tim’s passion for growing heirloom vegetables and preserving the taste of home. Every jar of salsa is made with fresh-picked tomatoes, peppers, garlic, and love — crafted small-batch in Caldwell to bring bold, honest flavor to your table.
       </p>
     </section>
   );

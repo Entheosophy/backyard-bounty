@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function BasketIcon({ className }) {
   const { totalItems } = useBasket();
-  const icon = totalItems > 0 ? "/BasketFull.png" : "/BasketEmpty.png";
+  const icon = totalItems > 0 ? "/basket-full.png" : "/basket-empty.png";
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {

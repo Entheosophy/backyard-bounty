@@ -64,7 +64,7 @@ export default function ProductModal({ product, onClose, isNightMode, colorMap, 
       <div 
         className={`relative rounded-lg shadow-lg max-w-md w-full p-6 space-y-4 overflow-hidden`} 
         style={{ 
-          background: gradientStyle, // Apply the dynamic gradient
+          background: gradientStyle,
         }}
       >
         {/* Close Button */}
@@ -89,11 +89,14 @@ export default function ProductModal({ product, onClose, isNightMode, colorMap, 
           ))}
         </ul>
 
+        {/* The new paragraph to indicate organic ingredients */}
+        <p className={`text-xs italic ${modalTextColor}`}>*Organic</p>
+
         {/* Nutrition Info with dynamic border */}
         <div 
             className={`text-sm pt-3 opacity-90 ${modalTextColor}`}
             style={{ 
-                borderTop: `1px solid ${borderColor}` // Apply dynamic border color
+                borderTop: `1px solid ${borderColor}`
             }}
         >
           <strong>Nutrition:</strong> {product.nutrition}

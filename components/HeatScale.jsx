@@ -1,7 +1,7 @@
 // components/HeatScale.jsx
 export default function HeatScale({ heatLevel = 1, className = "" }) {
   const level = Math.min(Math.max(heatLevel, 1), 4); // Clamp between 1 and 4
-  const src = `/Heat${level}.svg`;
+  const src = `/heat-${level}.svg`;
 
   return (
     <div className={`flex justify-center items-center ${className}`}>

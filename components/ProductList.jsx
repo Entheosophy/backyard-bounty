@@ -24,28 +24,28 @@ const products = [
     name: "Mild",
     description: "Bright and fresh with just a spark of warmth.",
     heatLevel: 1,
-    ingredients: ["Heirloom Tomatoes", "Backyard Peppers", "Garlic", "Cilantro", "Salt", "Black Pepper", "Citric Acid"],
+    ingredients: ["*Heirloom Tomatoes", "*Peppers (Jalapeño, Anaheim, Gypsy),", "*Garlic", "Cilantro", "Salt", "Black Pepper", "Citric Acid"],
     nutrition: "20 cal / 2 tbsp"
   },
   {
     name: "Med",
     description: "Balanced jalapeño kick and garden sweetness.",
     heatLevel: 2,
-    ingredients: ["Heirloom Tomatoes", "Jalapeños", "Onion", "Garlic", "Salt"],
+    ingredients: ["*Heirloom Tomatoes", "*Peppers (Jalapeño, Anaheim, Gypsy),", "*Garlic", "Cilantro", "Salt", "Black Pepper", "Citric Acid"],
     nutrition: "25 cal / 2 tbsp"
   },
   {
     name: "Hot",
-    description: "Serrano heat with deep, smoky undertones.",
+    description: "A fiery blend with the citrusy punch of habanero and a lasting warmth.",
     heatLevel: 3,
-    ingredients: ["Heirloom Tomatoes", "Serrano Peppers", "Garlic", "Smoked Paprika"],
+    ingredients: ["*Heirloom Tomatoes", "*Peppers (Jalapeño, Serrano, Anaheim, Habanero)", "*Garlic", "Cilantro", "Salt", "Black Pepper", "Citric Acid"],
     nutrition: "30 cal / 2 tbsp"
   },
   {
     name: "Fire",
-    description: "Best come prepared.",
+    description: "An intense burn from Thai dragon peppers, tamed by a surprising sweet finish. Best come prepared.",
     heatLevel: 4,
-    ingredients: ["Fire-roasted Heirloom Tomatoes", "Hot AF Peppers", "Garlic", "Smoked Paprika"],
+    ingredients: ["*Heirloom Tomatoes", "*Peppers (Jalapeño, Serrano, Anaheim, Habanero, Thai Dragon)", "*Garlic", "Cilantro", "Salt", "Black Pepper", "Citric Acid"],
     nutrition: "30 cal / 2 tbsp"
   }
 ];

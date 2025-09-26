@@ -89,7 +89,7 @@
       },
       "/about": {
         "components": ["About"],
-        "goal": "Story of Uncle Tim and the Idaho-grown legacy"
+        "goal": "Story of Tim and the Idaho-grown legacy"
       },
       "/contact": {
         "components": [],
