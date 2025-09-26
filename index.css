@@ -97,6 +97,13 @@ html.theme-night {
   --field-front: #a78b3f;
 }
 
+html {
+  @apply scroll-smooth;
+  scroll-padding-top: 3rem; /* adjust to your nav height */
+  scroll-behavior: smooth;
+  transition: background-color 0.3s, color 0.3s;
+}
+
 /* ————— ANIMATIONS ————— */
 @keyframes badge-pop {
   0% { transform: scale(1); }

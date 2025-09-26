@@ -1,4 +1,5 @@
 // components/BasketIcon.jsx
+/*
 import { useBasket } from "../context/BasketContext";
 import { useEffect, useState } from "react";
 
@@ -25,3 +26,4 @@ export default function BasketIcon({ className }) {
     />
   );
 }
+*/

@@ -1,8 +1,6 @@
 // components/ProductModal.jsx
 
 import { useEffect } from "react";
-import { useBasket } from "../context/BasketContext";
-import { toast } from "react-hot-toast";
 
 // Helper function to convert hex to rgba (duplicate in both files for simplicity)
 const hexToRgba = (hex, alpha) => {
@@ -14,8 +12,6 @@ const hexToRgba = (hex, alpha) => {
 
 // Destructure new prop: rawColorData
 export default function ProductModal({ product, onClose, isNightMode, colorMap, rawColorData }) { 
-  const { addItem } = useBasket();
-  
   useEffect(() => {
     const handleKey = (e) => {
       if (e.key === "Escape") onClose();
@@ -28,20 +24,13 @@ export default function ProductModal({ product, onClose, isNightMode, colorMap, 
     if (e.target === e.currentTarget) onClose();
   };
 
-  const handleAdd = () => {
-    if (!product || !addItem) return;
-    addItem(product, 1);
-    toast.success(`${product.name} added to basket`);
-    onClose();
-  };
-
   if (!product) return null;
 
   // Get the raw hex colors for the current product
   const productRawColors = rawColorData[product.name];
   
   // Define opacity for the modal background (less intense)
-  const modalGradientAlpha = 0.75; // You can adjust this value (e.g., 0.7 for more transparency)
+  const modalGradientAlpha = 0.75; 
 
   // Convert hex colors to RGBA with desired opacity
   const modalStartColorRgba = hexToRgba(productRawColors.dark, modalGradientAlpha);
@@ -53,7 +42,7 @@ export default function ProductModal({ product, onClose, isNightMode, colorMap, 
   // Text color inside the modal will be white for contrast
   const modalTextColor = 'text-white'; 
 
-  // Border color for the nutrition section: a subtle, semi-transparent white
+  // Border color for the nutrition section
   const borderColor = 'rgba(255, 255, 255, 0.3)'; 
 
   return (
@@ -89,10 +78,10 @@ export default function ProductModal({ product, onClose, isNightMode, colorMap, 
           ))}
         </ul>
 
-        {/* The new paragraph to indicate organic ingredients */}
+        {/* Organic Ingredients Note */}
         <p className={`text-xs italic ${modalTextColor}`}>*Organic</p>
 
-        {/* Nutrition Info with dynamic border */}
+        {/* Nutrition Info */}
         <div 
             className={`text-sm pt-3 opacity-90 ${modalTextColor}`}
             style={{ 
@@ -101,14 +90,6 @@ export default function ProductModal({ product, onClose, isNightMode, colorMap, 
         >
           <strong>Nutrition:</strong> {product.nutrition}
         </div>
-
-        {/* Add to Basket Button */}
-        <button
-          className="mt-4 w-full px-4 py-2 rounded bg-amber-500 hover:bg-amber-600 text-white font-semibold"
-          onClick={handleAdd}
-        >
-          Add to Basket
-        </button>
       </div>
     </div>
   );

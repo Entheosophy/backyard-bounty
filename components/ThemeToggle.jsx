@@ -2,24 +2,16 @@
 import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
-  const [dark, setDark] = useState(false); // Safe default for SSR
+  const [dark, setDark] = useState(false);
 
-  // Load preference from localStorage only on the client
   useEffect(() => {
     if (typeof window === "undefined") return;
-
-    const isNight =
-      localStorage.theme === "night" ||
-      (!localStorage.theme &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches);
-
+    const isNight = localStorage.theme === "night";
     setDark(isNight);
   }, []);
 
-  // Apply theme to <html> and persist
   useEffect(() => {
     if (typeof window === "undefined") return;
-
     const html = document.documentElement;
     html.classList.toggle("theme-night", dark);
     html.classList.toggle("theme-day", !dark);
