@@ -99,7 +99,7 @@ html.theme-night {
 
 html {
   @apply scroll-smooth;
-  scroll-padding-top: 3rem; /* adjust to your nav height */
+  scroll-padding-top: 4rem; /* adjust to your nav height */
   scroll-behavior: smooth;
   transition: background-color 0.3s, color 0.3s;
 }

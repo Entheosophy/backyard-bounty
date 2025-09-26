@@ -1,8 +1,8 @@
 // components/ProductModal.jsx
 
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 
-// Helper function to convert hex to rgba (duplicate in both files for simplicity)
 const hexToRgba = (hex, alpha) => {
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
@@ -10,8 +10,7 @@ const hexToRgba = (hex, alpha) => {
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 };
 
-// Destructure new prop: rawColorData
-export default function ProductModal({ product, onClose, isNightMode, colorMap, rawColorData }) { 
+export default function ProductModal({ product, onClose, rawColorData }) {
   useEffect(() => {
     const handleKey = (e) => {
       if (e.key === "Escape") onClose();
@@ -26,71 +25,55 @@ export default function ProductModal({ product, onClose, isNightMode, colorMap, 
 
   if (!product) return null;
 
-  // Get the raw hex colors for the current product
   const productRawColors = rawColorData[product.name];
-  
-  // Define opacity for the modal background (less intense)
-  const modalGradientAlpha = 0.75; 
+  const modalGradientAlpha = 0.75;
+  const gradientStyle = `linear-gradient(to bottom right, ${hexToRgba(
+    productRawColors.dark,
+    modalGradientAlpha
+  )}, ${hexToRgba(productRawColors.light, modalGradientAlpha)})`;
 
-  // Convert hex colors to RGBA with desired opacity
-  const modalStartColorRgba = hexToRgba(productRawColors.dark, modalGradientAlpha);
-  const modalEndColorRgba = hexToRgba(productRawColors.light, modalGradientAlpha);
-
-  // Define the gradient style for the modal background
-  const gradientStyle = `linear-gradient(to bottom right, ${modalStartColorRgba}, ${modalEndColorRgba})`;
-
-  // Text color inside the modal will be white for contrast
-  const modalTextColor = 'text-white'; 
-
-  // Border color for the nutrition section
-  const borderColor = 'rgba(255, 255, 255, 0.3)'; 
-
-  return (
+  const modalContent = (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4"
       onClick={handleBackdrop}
     >
-      <div 
-        className={`relative rounded-lg shadow-lg max-w-md w-full p-6 space-y-4 overflow-hidden`} 
-        style={{ 
+      <div
+        className="relative rounded-lg shadow-lg w-full max-w-md p-6 space-y-4 overflow-auto"
+        style={{
           background: gradientStyle,
+          maxHeight: "90vh",
         }}
       >
-        {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close"
-          className={`absolute top-3 right-3 text-xl font-bold opacity-70 hover:opacity-100 transition ${modalTextColor}`}
+          className="absolute top-3 right-3 text-xl font-bold opacity-70 hover:opacity-100 text-white"
         >
           &times;
         </button>
 
-        {/* Product Name */}
-        <h3 className={`text-3xl font-bold ${modalTextColor}`}>{product.name}</h3>
-        
-        {/* Product Description */}
-        <p className={`text-md ${modalTextColor}`}>{product.description}</p>
+        <h3 className="text-3xl font-bold text-white">{product.name}</h3>
+        <p className="text-md text-white">{product.description}</p>
 
-        {/* Ingredients List */}
-        <ul className={`text-sm list-disc list-inside ${modalTextColor}`}>
+        <ul className="text-sm list-disc list-inside text-white">
           {product.ingredients.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
         </ul>
 
-        {/* Organic Ingredients Note */}
-        <p className={`text-xs italic ${modalTextColor}`}>*Organic</p>
+        <p className="text-xs italic text-white">*Organic</p>
 
-        {/* Nutrition Info */}
-        <div 
-            className={`text-sm pt-3 opacity-90 ${modalTextColor}`}
-            style={{ 
-                borderTop: `1px solid ${borderColor}`
-            }}
+        <div
+          className="text-sm pt-3 opacity-90 text-white"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.3)" }}
         >
           <strong>Nutrition:</strong> {product.nutrition}
         </div>
       </div>
     </div>
   );
+
+  return typeof document !== "undefined"
+    ? createPortal(modalContent, document.body)
+    : null;
 }
