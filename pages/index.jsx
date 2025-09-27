@@ -104,7 +104,7 @@ export default function Home() {
     </p>
     
     <a
-      href="mailto:backyardbounty@email.com"
+      href="mailto:salsa@backyardbounty.com"
       className={`inline-block bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded font-semibold ${hoverCardClass} mb-4`}
     >
       Email Tim
