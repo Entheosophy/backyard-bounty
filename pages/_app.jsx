@@ -7,6 +7,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <title>Backyard Bounty</title>
         <link rel="icon" href="/backyard-bounty-logo.png" type="image/png" />
       </Head>
       <Layout>
