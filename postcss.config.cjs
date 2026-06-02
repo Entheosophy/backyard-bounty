@@ -1,7 +1,7 @@
-// postcss.config.js
+// /Users/entheos/Documents/Backyard Bounty/postcss.config.cjs
 module.exports = {
   plugins: {
-    '@tailwindcss/postcss': {},  // ← this is the new Tailwind v4 plugin
-    autoprefixer: {},             // ← keep autoprefixer as-is
+    '@tailwindcss/postcss': {},
+    autoprefixer: {},
   },
 }

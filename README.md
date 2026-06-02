@@ -1,12 +1,46 @@
-# React + Vite
+# Backyard Bounty
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Small Next.js website for Backyard Bounty, an Idaho-rooted small-batch salsa brand.
 
-Currently, two official plugins are available:
+## What Exists
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Single-page homepage with anchored sections for Home, About, Products, Where to Buy, and Contact.
+- Day/night illustrated landscape background.
+- Product catalog for four salsa heat levels.
+- Product detail modal.
+- Lightweight pageview tracking with Upstash Redis.
+- Read-only `/stats` page for total and unique visitor counts.
 
-## Expanding the ESLint configuration
+## Local Development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000`.
+
+## Verification
+
+```bash
+npm run lint
+npm run build
+```
+
+`npm run lint` uses the local flat ESLint config. `npm run build` runs the Next.js production build.
+
+## Environment
+
+Analytics are optional. Without these variables, the site still renders and stats return fallback values.
+
+```bash
+UPSTASH_REDIS_REST_URL=
+UPSTASH_REDIS_REST_TOKEN=
+```
+
+## Source Of Truth
+
+- Product copy and heat metadata: `/Users/entheos/Documents/Backyard Bounty/data/products.js`
+- Analytics read/write behavior: `/Users/entheos/Documents/Backyard Bounty/lib/analyticsStore.js`
+- Homepage layout: `/Users/entheos/Documents/Backyard Bounty/pages/index.jsx`
+- Shared shell/background/nav: `/Users/entheos/Documents/Backyard Bounty/components/Layout.jsx`

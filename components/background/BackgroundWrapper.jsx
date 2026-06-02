@@ -1,8 +1,9 @@
-// components/background/BackgroundWrapper.jsx
+// /Users/entheos/Documents/Backyard Bounty/components/background/BackgroundWrapper.jsx
 import NightOverlay from "./NightOverlay";
 import SunAura from "./SunAura";
 import CrescentMoon from "./CrescentMoon";
 import LandscapeBackdrop from "./LandscapeBackdrop";
+import BreezeLayer from "./BreezeLayer";
 import DayNightInsects from "./DayNightInsects";
 import RootCanvas from "./RootCanvas";
 
@@ -20,6 +21,7 @@ export default function BackgroundWrapper() {
       <LandscapeBackdrop />
 
       {/* ATMOSPHERIC ELEMENTS */}
+      <BreezeLayer />
       <DayNightInsects />
       <RootCanvas />
     </div>

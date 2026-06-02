@@ -1,4 +1,4 @@
-// pages/_document.jsx
+// /Users/entheos/Documents/Backyard Bounty/pages/_document.jsx
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {

@@ -1,27 +1,27 @@
-// components/background/SunAura.jsx
+// /Users/entheos/Documents/Backyard Bounty/components/background/SunAura.jsx
 import { forwardRef } from "react";
 
 const SunAura = forwardRef(function SunAura(_, ref) {
   return (
     <div
       ref={ref}
-      className="fixed top-[60px] left-1/2 -translate-x-1/2 z-0 w-[220px] h-[220px] transition-opacity duration-700 theme-day:opacity-100 theme-night:opacity-0"
+      className="fixed left-1/2 top-[100px] z-0 h-[170px] w-[170px] -translate-x-1/2 transition-opacity duration-700 theme-day:opacity-100 theme-night:opacity-0 md:top-[92px] md:h-[220px] md:w-[220px]"
     >
       {/* Glow */}
       <div className="absolute inset-0 rounded-full blur-3xl bg-[var(--scene-sun)] opacity-50" />
 
-      {/* Animated ray wrapper */}
-      <div className="absolute inset-0 animate-rotate-and-pulse pointer-events-none">
+      {/* Rays */}
+      <div className="pointer-events-none absolute inset-0 z-10">
         {[...Array(8)].map((_, i) => {
           const angle = i * 45;
           return (
             <div
               key={i}
-              className="absolute w-0 h-0 border-l-[9px] border-r-[9px] border-b-[18px] border-l-transparent border-r-transparent border-b-[var(--scene-sun)] opacity-70"
+              className="absolute h-0 w-0 border-b-[22px] border-l-[10px] border-r-[10px] border-b-[var(--scene-sun)] border-l-transparent border-r-transparent opacity-80 md:border-b-[30px] md:border-l-[14px] md:border-r-[14px]"
               style={{
                 top: "50%",
                 left: "50%",
-                transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(-95px)`,
+                transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(-96px)`,
                 transformOrigin: "center",
               }}
             />
@@ -30,26 +30,7 @@ const SunAura = forwardRef(function SunAura(_, ref) {
       </div>
 
       {/* Solid sun */}
-      <div className="absolute inset-0 m-auto w-[160px] h-[160px] rounded-full bg-[var(--scene-sun)] opacity-60 shadow-md" />
-
-      {/* Keyframes */}
-      <style>{`
-        @keyframes rotate-and-pulse {
-          0% {
-            transform: rotate(0deg) scale(1);
-          }
-          50% {
-            transform: rotate(180deg) scale(1.07);
-          }
-          100% {
-            transform: rotate(360deg) scale(1);
-          }
-        }
-        .animate-rotate-and-pulse {
-          animation: rotate-and-pulse 12s linear infinite;
-          transform-origin: center;
-        }
-      `}</style>
+      <div className="absolute inset-0 z-20 m-auto h-[120px] w-[120px] rounded-full bg-[var(--scene-sun)] opacity-95 shadow-md md:h-[160px] md:w-[160px]" />
     </div>
   );
 });

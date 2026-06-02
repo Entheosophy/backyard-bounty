@@ -1,4 +1,4 @@
-// components/RootCanvas.jsx
+// /Users/entheos/Documents/Backyard Bounty/components/background/RootCanvas.jsx
 import { useEffect, useRef } from "react";
 
 export default function RootCanvas() {
@@ -7,40 +7,56 @@ export default function RootCanvas() {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
+    const rootSystems = [
+      { x: 0.18, y: 0.88, segments: [-10, 16, -6, 12, 4, 18, -8, 14] },
+      { x: 0.36, y: 0.9, segments: [8, 14, -10, 15, 5, 18, 10, 12] },
+      { x: 0.54, y: 0.89, segments: [-4, 13, 9, 17, -9, 14, 6, 16] },
+      { x: 0.72, y: 0.91, segments: [10, 13, 7, 15, -8, 17, -6, 13] },
+      { x: 0.88, y: 0.88, segments: [-8, 14, 5, 15, 10, 14, -5, 18] },
+    ];
 
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-
-    const roots = Array.from({ length: 5 }, (_, i) => ({
-      x: width * 0.2 * (i + 1),
-      y: height - 50,
-      depth: 0,
-    }));
-
-    function drawRoot(r) {
+    function drawRoot(root, width, height) {
+      let x = width * root.x;
+      let y = height * root.y;
       ctx.beginPath();
-      ctx.moveTo(r.x, r.y);
-      for (let i = 0; i < 10; i++) {
-        r.x += Math.random() * 10 - 5;
-        r.y += Math.random() * 8;
-        ctx.lineTo(r.x, r.y);
+      ctx.moveTo(x, y);
+
+      for (let i = 0; i < root.segments.length; i += 2) {
+        x += root.segments[i];
+        y += root.segments[i + 1];
+        ctx.lineTo(x, y);
+
+        if (i === 2 || i === 4) {
+          ctx.moveTo(x, y);
+          ctx.lineTo(x - 12, y + 8);
+          ctx.moveTo(x, y);
+          ctx.lineTo(x + 10, y + 7);
+        }
       }
+
       ctx.strokeStyle = "#92400e66";
       ctx.lineWidth = 1;
       ctx.stroke();
     }
 
-    function animate() {
+    function draw() {
+      const pixelRatio = window.devicePixelRatio || 1;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      canvas.width = width * pixelRatio;
+      canvas.height = height * pixelRatio;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
       ctx.clearRect(0, 0, width, height);
-      roots.forEach(drawRoot);
-      requestAnimationFrame(animate);
+      rootSystems.forEach((root) => drawRoot(root, width, height));
     }
 
-    animate();
-    window.addEventListener("resize", () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
+    draw();
+    window.addEventListener("resize", draw);
+
+    return () => window.removeEventListener("resize", draw);
   }, []);
 
   return (

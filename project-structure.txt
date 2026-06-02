@@ -1,49 +1,48 @@
-Project Structure:
+Backyard Bounty current structure
 
-├── .gitignore
-├── README.md
-├── backyard-bounty-config.json
-├── components
-  ├── About.jsx
-  ├── BasketIcon.jsx
-  ├── Footer.jsx
-  ├── Header.jsx
-  ├── HeatScale.jsx
-  ├── Label.jsx
-  ├── Layout.jsx
-  ├── Navigation.jsx
-  ├── ProductList.jsx
-  ├── ProductModal.jsx
-  ├── ThemeToggle.jsx
-  ├── background
-    ├── BackgroundLandscape.jsx
-    ├── BackgroundWrapper.jsx
-    ├── CrescentMoon.jsx
-    ├── DayNightInsects.jsx
-    ├── FieldPlants.jsx
-    ├── LandscapeBackdrop.jsx
-    ├── NightOverlay.jsx
-    ├── RootCanvas.jsx
-    ├── SunAura.jsx
-├── context
-  ├── BasketContext.jsx
-├── eslint.config.js
-├── generateStructure.mjs
-├── heartbeatHibiscus.html
-├── index.css
-├── information.md
-├── next.config.cjs
-├── package.json
-├── pages
-  ├── _app.jsx
-  ├── about.jsx
-  ├── api
-    ├── sendEmail.js
-  ├── basket.jsx
-  ├── contact.jsx
-  ├── index.jsx
-  ├── products.jsx
-  ├── where-to-buy.jsx
-├── postcss.config.cjs
-├── src.zip
-├── tailwind.config.js
+Root
+  data/
+    products.js
+  lib/
+    analyticsStore.js
+    color.js
+  pages/
+    _app.jsx
+    _document.jsx
+    index.jsx
+    stats.js
+    api/
+      pageview.js
+      stats.js
+  components/
+    Footer.jsx
+    HeatScale.jsx
+    Layout.jsx
+    Navigation.jsx
+    PageViewTracker.jsx
+    ProductList.jsx
+    ProductModal.jsx
+    ThemeToggle.jsx
+    background/
+      BackgroundWrapper.jsx
+      CrescentMoon.jsx
+      DayNightInsects.jsx
+      FieldPlants.jsx
+      LandscapeBackdrop.jsx
+      NightOverlay.jsx
+      RootCanvas.jsx
+      SunAura.jsx
+    svg/
+      RedPepperPlant.jsx
+  public/
+    backyard-bounty-logo.png
+    backyard-bounty-logo-small.png
+
+Primary route model
+  /       Single-page public site with anchored sections
+  /stats  Read-only analytics display
+
+Primary commands
+  npm run dev
+  npm run lint
+  npm run build

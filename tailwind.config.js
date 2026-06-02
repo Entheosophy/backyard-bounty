@@ -1,11 +1,13 @@
-// tailwind.config.js
+// /Users/entheos/Documents/Backyard Bounty/tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,jsx}"
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./data/**/*.{js,jsx}",
+    "./lib/**/*.{js,jsx}"
   ],
-  darkMode: 'class', // Required for theme-night to work
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -37,7 +39,7 @@ export default {
         }
       },
       maxHeight: {
-        96: '24rem' // For dropdowns, etc.
+        96: '24rem'
       },
       transitionProperty: {
         height: 'height',

@@ -1,5 +1,5 @@
-// components/Navigation.jsx
-import { useState, useEffect } from "react";
+// /Users/entheos/Documents/Backyard Bounty/components/Navigation.jsx
+import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
@@ -11,15 +11,6 @@ const navItems = [
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Detect mobile width
-  useEffect(() => {
-    const update = () => setIsMobile(window.innerWidth < 768);
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
@@ -33,9 +24,10 @@ export default function Navigation() {
     >
       {navItems.map(({ path, label }) => (
         <button
+          type="button"
           key={path}
           onClick={() => scrollToSection(path)}
-          className={`text-sm font-medium transition hover:text-amber-500 ${
+          className={`text-sm font-bold transition hover:text-red-800 theme-night:hover:text-red-200 ${
             mobile ? "text-base" : ""
           }`}
         >
@@ -46,16 +38,23 @@ export default function Navigation() {
   );
 
   return (
-    <nav className="w-full fixed top-0 left-0 z-40 bg-transparent backdrop-blur-md border-b border-gray-200/50 dark:border-gray-700/50">
+    <nav className="fixed left-0 top-0 z-40 w-full border-b border-stone-900/10 bg-[#fff7df]/52 backdrop-blur-md theme-night:border-stone-100/10 theme-night:bg-stone-950/45">
       <div className="max-w-7xl mx-auto h-16 px-4">
         {/* Desktop */}
         <div className="hidden md:flex items-center justify-between h-full">
-          <button onClick={() => scrollToSection("home")} className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => scrollToSection("home")}
+            className="flex items-center gap-3"
+          >
             <img
-              src="/backyard-bounty-logo.png"
+              src="/backyard-bounty-logo-small.png"
               className="h-8 w-auto max-h-10 object-contain"
               alt="Backyard Bounty"
             />
+            <span className="text-sm font-black uppercase tracking-[0.18em]">
+              Backyard Bounty
+            </span>
           </button>
 
           {renderLinks()}
@@ -66,9 +65,13 @@ export default function Navigation() {
 
         {/* Mobile */}
         <div className="md:hidden grid grid-cols-3 items-center h-full">
-          <button onClick={() => scrollToSection("home")} className="flex items-center gap-1 min-w-0">
+          <button
+            type="button"
+            onClick={() => scrollToSection("home")}
+            className="flex items-center gap-1 min-w-0"
+          >
             <img
-              src="/backyard-bounty-logo.png"
+              src="/backyard-bounty-logo-small.png"
               alt="Backyard Bounty"
               className="h-8 w-auto max-h-10 object-contain flex-shrink-0"
             />
@@ -76,8 +79,9 @@ export default function Navigation() {
 
           <div className="flex justify-center">
             <button
+              type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded border border-gray-400 dark:border-gray-600 backdrop-blur-md"
+              className="rounded border border-stone-900/25 bg-white/35 p-2 backdrop-blur-md theme-night:border-stone-100/25 theme-night:bg-stone-900/45"
               aria-label="Toggle menu"
             >
               <span className="text-xl text-[var(--scene-text)]">

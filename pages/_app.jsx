@@ -1,4 +1,4 @@
-// pages/_app.jsx
+// /Users/entheos/Documents/Backyard Bounty/pages/_app.jsx
 import Layout from "../components/Layout.jsx";
 import "../index.css";
 import Head from "next/head";
@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>Backyard Bounty</title>
-        <link rel="icon" href="/backyard-bounty-logo.png" type="image/png" />
+        <link rel="icon" href="/backyard-bounty-logo-small.png" type="image/png" />
       </Head>
       <Layout>
         <Component {...pageProps} />

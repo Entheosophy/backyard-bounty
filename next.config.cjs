@@ -1,10 +1,7 @@
-// next.config.js
+// /Users/entheos/Documents/Backyard Bounty/next.config.cjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
-    images: {
-      unoptimized: true,
-    },
   };
   
   module.exports = nextConfig;
